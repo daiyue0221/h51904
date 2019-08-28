@@ -1,0 +1,41 @@
+BootStrap：
+1、栅格式布局
+2、响应式导航条
+
+响应式必备：
+1、元标签
+2、相对单位
+3、响应式图片
+4、媒体查询
+-----------------------------------------------------------------------------------
+
+ajax
+（1）创建XHR核心对象
+     var xhr=getXhr();
+     function getXhr(){
+	var xhr=null;
+	if(XMLHttpRequest){
+	    xhr=new XMLHttpRequest();
+	}else{
+	    xhr=new ActiveXObject("Microsoft.XMLHttp");
+	}
+	return xhr;
+     }
+
+（2）连接服务器
+     xhr.open("method","xx.php");
+
+（3）发送请求消息
+     xhr.send()
+     特殊：
+	GET：xhr.send(null); //key=value的键值对需要放在url?后面
+	POST：xhr.send("key=value");
+	      必须加在之前一句话
+	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+
+（4）监听
+     xhr.onreadystatechange=function(){//2-3-4
+	if(xhr.readyState==4 && xhr.status==200){
+		xhr.responseText
+	}
+     }

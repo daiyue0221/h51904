@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			$("h1").load("01.php","dy=1",data=>{
+//				console.log(data);
+//			})
+
+			$.post("http://localhost/ajax_day03/new/01.php",data=>{
+				console.log(data);
+			},"JSON");
+		</script>
+	</body>
+</html>

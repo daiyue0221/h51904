@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$.ajax({
+				"url":"http://10.40.152.77:1109/js-ajax/ajax03/php/jq轮播.php",
+				"data":"dy=?",
+				"dataType": "JSONP",
+				"success":function(d){
+					console.log(d);
+				},
+			})
+			
+			btn.onclick=function(){
+				dy=1
+			}
+		</script>
+	</body>
+</html>

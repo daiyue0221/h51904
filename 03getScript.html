@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		
+		
+		<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			btn.onclick=function(){
+				$.getScript("03.js",()=>{
+					alert("03.js已经引入完毕");
+				});
+			}
+		</script>
+		
+	</body>
+</html>

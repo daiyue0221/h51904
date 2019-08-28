@@ -1,0 +1,57 @@
+jQuery - 封装了DOM和ajax操作，简化了原生ajax的操作
+	 一共封装了3层
+
+第一层 - 最复杂，可以跨域
+$.ajax({
+ **"url": "xx.php", //请求地址
+  *"type": "GET/POST",//请求的方式，默认GET，取值GET/POST
+  *"data": "key=value",//请求的消息
+  *"dataType": "HTML/JSON/XML/JSONP",//响应的数据的类型
+ **"success": function(data,status){//此方法只有在成功的时候才会执行
+
+   },
+   "error":function(xhr,status,throw){//此方法只有在失败的时候才会执行
+	
+   },
+   "async": true,//默认就是true，代表异步
+})
+
+第二层 - 3种
+1、$("").load("xx.php","key=value",function(data){}); -- 鸡肋
+   缺点：1、会直接将得到的数据放到页面之上
+	 2、此方法不能设置dataType，意味着得到的就只能是字符串。只能自己脱衣服
+	 3、此方法不能设置GET/POST，只能默认GET
+
+2、*$.get("url","key=value",function(data){},"HTML/XML/JSON");
+3、*$.post("url","key=value",function(data){},"HTML/XML/JSON");
+   解决：1、不会讲数据放到页面上
+         2、可以自己选择想要的方式
+	 3、可以设置dataType
+
+第三层 - 特殊用法：2个方法
+1、$.getScript("xx.js")  == <script src="xx.js">
+   动态引入JS的技术
+
+2、*****跨域(JSONP跨域)
+   只要域名、协议、端口任何一个不同，就是在跨域，但是浏览会阻止你跨域
+	前端：$.getJSON("xx.php?name=?",data=>{
+			console.log(data);
+	      })
+
+	后端：echo $_GET["name"]."(".JSON_encode(arr).")"
+	
+其实jQuery会为我们自动赋值：	callback=jQuery1113016340715896351288_1566974523455&_=1566974523456
+而这一堆东西都会被后端接住
+
+
+作业：
+  1、使用jQuery封装的ajax做出一个动态的轮播（小点随着图片变化）
+  2、使用jQuery封装的跨域操作，把同桌的数据库的新闻生成在你的页面之上
+  3、使用jQuery封装的跨域操作。金夫人拍摄基地选项卡效果
+	要求：前端只有一个块，14块都是动态生成的
+
+-----------------------------------------------------------------------------------
+
+svn：集中式版本控制管理工具 现在的公司用的不多 1:9;
+可能用：老公司，这个项目就是机密，不希望外泄。
+git：分布式：上传到网络之上。
